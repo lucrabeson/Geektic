@@ -1,6 +1,7 @@
 package geeks;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -11,19 +12,22 @@ public class Geek {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	protected int id;
 	protected String pseudo;
+	protected String prenom;
+	protected String nom;
 	protected String mail;
 	protected boolean male;
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date inscription;
+	@OneToMany(mappedBy = "geek")
+	protected List<Interet> interets = new ArrayList<Interet>();
 	
 	public Geek() {
 	}
 	
-	public Geek(String pse, String mai, boolean mal, Date ins) {
+	public Geek(String pse, String pre, String leNom, String mai, boolean mal) {
 		pseudo = pse;
+		prenom = pre;
+		nom = leNom;
 		mail = mai;
 		male = mal;
-		inscription = ins;
 	}
 
 	public int getId() {
@@ -42,6 +46,22 @@ public class Geek {
 		this.pseudo = pseudo;
 	}
 
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
 	public String getMail() {
 		return mail;
 	}
@@ -58,12 +78,12 @@ public class Geek {
 		this.male = male;
 	}
 
-	public Date getInscription() {
-		return inscription;
+	public List<Interet> getInterets() {
+		return interets;
 	}
 
-	public void setInscription(Date inscription) {
-		this.inscription = inscription;
+	public void setInterets(List<Interet> interets) {
+		this.interets = interets;
 	}
 
 }
