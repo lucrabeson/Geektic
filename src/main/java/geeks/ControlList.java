@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/list")
+@RequestMapping("list")
 public class ControlList extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
