@@ -8,21 +8,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/")
-public class Index extends HttpServlet {
+@RequestMapping("/list")
+public class ControlList extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	protected GeekService geekService;
 
-	public Index() {}
+	public ControlList() {}
 	@Autowired
-	public Index(GeekService g) {
+	public ControlList(GeekService g) {
 		geekService = g;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView indexAction() {
-		return new ModelAndView("index");
+	public ModelAndView listAllGeeks() {
+		ModelAndView model = new ModelAndView("list");
+		model.addObject("geeks", geekService.getGeeks());
+		return model;
 	}
 
 }

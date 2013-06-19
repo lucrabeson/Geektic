@@ -21,7 +21,7 @@ public class GeekService {
 		return dao.findAll();
 	}
 
-	public Geek getGeek(Long id) {
+	public Geek getGeek(int id) {
 		return dao.findById(id);
 	}
 

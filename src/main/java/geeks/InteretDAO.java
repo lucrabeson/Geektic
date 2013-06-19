@@ -25,7 +25,7 @@ public class InteretDAO {
 		em.persist(interet);
 	}
 	
-	public Interet findById(Long id) {
+	public Interet findById(int id) {
 		return em.find(Interet.class, id);
 	}
 

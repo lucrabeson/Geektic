@@ -18,14 +18,14 @@ public class GeekDAO {
 	}
 
 	public List<Geek> findAll() {
-		return em.createQuery("SELECT geek FROM Geek g order by g.pseudo", Geek.class).getResultList();
+		return em.createQuery("SELECT geek FROM Geek geek order by geek.pseudo", Geek.class).getResultList();
 	}
 
 	public void persist(Geek geek) {
 		em.persist(geek);
 	}
 
-	public Geek findById(Long id) {
+	public Geek findById(int id) {
 		return em.find(Geek.class, id);
 
 	}

@@ -23,7 +23,7 @@ public class InteretService {
 		return dao.findAll();
 	}
 
-	public Interet getInteret(Long id) {
+	public Interet getInteret(int id) {
 		return dao.findById(id);
 	}
 	

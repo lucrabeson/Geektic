@@ -5,15 +5,15 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Geektic</title>
+		<title>Liste des geeks</title>
 	</head>
 	<body>
-		<p>Hello world!</p>
 		<p>
-			<c:out value="${geekNumero1.id}"/><br/>
-			<c:out value="${geekNumero1.pseudo}"/><br/>
-			<c:out value="${geekNumero1.male}"/><br/>
-			<a href="list">Lister les geeks</a>
+			<c:forEach var="geek" items="${geeks}">
+				<c:out value="${geek.id}"/><br/>
+				<c:out value="${geek.pseudo}"/><br/>
+				<c:out value="${geek.male}"/><br/>
+			</c:forEach>
 		</p>
 	</body>
 </html>
