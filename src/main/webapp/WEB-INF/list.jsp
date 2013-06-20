@@ -8,14 +8,21 @@
 		<title>Liste des geeks</title>
 	</head>
 	<body>
-		<p>
+		<ul>
 			<c:forEach var="geek" items="${geeks}">
-				<a href="profile?id=${geek.id}">
+				<li>
+					<a href="profile?id=${geek.id}">
 					<c:out value="${geek.pseudo}"/>
-					<c:out value=" (${geek.prenom} ${geek.nom})"/><br/>
-				</a>
+					<c:out value=" (${geek.prenom} ${geek.nom})"/>
+					</a>
+				</li>
 			</c:forEach>
-		</p>
+		</ul>
+		<c:if test="${empty geeks}">
+			<p>
+				Aucun profil correspondant trouvé.
+			</p>
+		</c:if>
 		<a href="/Geektic">Accueil</a>
 	</body>
 </html>

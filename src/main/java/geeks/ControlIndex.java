@@ -22,9 +22,7 @@ public class ControlIndex extends HttpServlet {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView indexAction() {
-		ModelAndView model = new ModelAndView("index");
-		model.addObject("geekNumero1", geekService.getGeek(3));
-		return model;
+		return new ModelAndView("index");
 	}
 
 }
