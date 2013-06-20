@@ -8,11 +8,13 @@
 		<title>Geektic</title>
 	</head>
 	<body>
-		<p>Hello world!</p>
+		<p>Bienvenue sur Geektic, le site de rencontres!<br/>
+		   Avec une interface graphique extra épurée!</p>
 		<p>
 			<c:out value="${geekNumero1.id}"/><br/>
 			<c:out value="${geekNumero1.pseudo}"/><br/>
-			<c:out value="${geekNumero1.male}"/><br/>
+			${geekNumero1.prenom}<br/>
+			<c:out value="${geekNumero1.male ? 'Homme' : 'Femme'}" /><br/>
 			<a href="list">Lister les geeks</a>
 		</p>
 	</body>

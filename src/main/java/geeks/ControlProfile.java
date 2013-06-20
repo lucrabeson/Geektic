@@ -5,25 +5,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/")
-public class ControlIndex extends HttpServlet {
+@RequestMapping("profile")
+public class ControlProfile extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	protected GeekService geekService;
 
-	public ControlIndex() {}
+	public ControlProfile() {}
 	@Autowired
-	public ControlIndex(GeekService g) {
+	public ControlProfile(GeekService g) {
 		geekService = g;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView indexAction() {
-		ModelAndView model = new ModelAndView("index");
-		model.addObject("geekNumero1", geekService.getGeek(3));
+	@RequestMapping(method = RequestMethod.GET, params = "id")
+	public ModelAndView geekById(@RequestParam("id") int id) {
+		ModelAndView model = new ModelAndView("profile");
+		model.addObject("geek", geekService.getGeek(id));
 		return model;
 	}
 

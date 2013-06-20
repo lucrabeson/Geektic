@@ -10,10 +10,12 @@
 	<body>
 		<p>
 			<c:forEach var="geek" items="${geeks}">
-				<c:out value="${geek.id}"/><br/>
-				<c:out value="${geek.pseudo}"/><br/>
-				<c:out value="${geek.male}"/><br/>
+				<a href="profile?id=${geek.id}">
+					<c:out value="${geek.pseudo}"/>
+					<c:out value=" (${geek.prenom} ${geek.nom})"/><br/>
+				</a>
 			</c:forEach>
 		</p>
+		<a href="/Geektic">Accueil</a>
 	</body>
 </html>
