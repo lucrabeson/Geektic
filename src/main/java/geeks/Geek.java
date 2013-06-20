@@ -16,8 +16,16 @@ public class Geek {
 	protected String nom;
 	protected String mail;
 	protected boolean male;
-	@OneToMany(mappedBy = "geek")
-	protected List<Interet> interets = new ArrayList<Interet>();
+	
+	@ManyToMany(
+			cascade={CascadeType.PERSIST,
+					CascadeType.MERGE,
+					CascadeType.REFRESH})
+	@JoinTable(
+			name="GeekInteret",
+			joinColumns=@JoinColumn(name="idGeek"),
+			inverseJoinColumns=@JoinColumn(name="nomInteret"))
+	protected List<Interet> interetList = new ArrayList<Interet>();
 	
 	public Geek() {
 	}
@@ -78,12 +86,12 @@ public class Geek {
 		this.male = male;
 	}
 
-	public List<Interet> getInterets() {
-		return interets;
+	public List<Interet> getInteretList() {
+		return interetList;
 	}
 
-	public void setInterets(List<Interet> interets) {
-		this.interets = interets;
+	public void setInteretList(List<Interet> interetList) {
+		this.interetList = interetList;
 	}
 
 }

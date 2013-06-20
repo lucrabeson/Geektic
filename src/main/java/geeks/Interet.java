@@ -1,5 +1,6 @@
 package geeks;
 
+import java.util.*;
 import javax.persistence.*;
 
 @Entity
@@ -8,25 +9,22 @@ public class Interet {
 	@Id
 	@SequenceGenerator(name = "intGenName", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	protected int id;
 	protected String nom;
-
-	@ManyToOne
-	@JoinColumn(name = "idGeek", nullable = false)
-	protected Geek geek;
+	
+	@ManyToMany(
+			cascade={CascadeType.PERSIST,
+					CascadeType.MERGE,
+					CascadeType.REFRESH})
+	@JoinTable(
+			name="GeekInteret",
+			joinColumns=@JoinColumn(name="nomInteret"),
+			inverseJoinColumns=@JoinColumn(name="idGeek"))
+	protected List<Geek> geekList = new ArrayList<>();
 
 	public Interet() {}
 
 	public Interet(String n) {
 		nom = n;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getNom() {
@@ -37,12 +35,12 @@ public class Interet {
 		this.nom = nom;
 	}
 
-	public Geek getGeek() {
-		return geek;
+	public List<Geek> getGeekList() {
+		return geekList;
 	}
 
-	public void setGeek(Geek geek) {
-		this.geek = geek;
+	public void setGeekList(List<Geek> geekList) {
+		this.geekList = geekList;
 	}
 	
 }
