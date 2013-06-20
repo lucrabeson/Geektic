@@ -34,6 +34,9 @@ public class ControlList extends HttpServlet {
 										  @RequestParam(value="sex") String sex) {
 		ModelAndView model = new ModelAndView("list");
 		model.addObject("geeks", geekService.getGeeksCategory(category, value, sex));
+		model.addObject("category", category);
+		model.addObject("value", value);
+		model.addObject("sex", sex);
 		return model;
 	}
 

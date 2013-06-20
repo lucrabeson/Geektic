@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<p>
+			<c:out value="<html>"></c:out><br/>
 			Bienvenue sur Geektic, le site de rencontres!<br/>
 			Avec une interface graphique extra épurée!
 		</p>
@@ -18,25 +19,28 @@
 		<form method=post action="list">
 			Rechercher un Geek:<br/>
 			<ul>
-				<li>
+				<li><c:out value="<li>"></c:out>
 					Dont la catégorie 
 					<select name="category">
 						<option value="pseudo">Pseudo</option>
 						<option value="nom">Nom</option>
 						<option value="mail">Adresse mail</option>
-						<option value="interets">Intérêts</option>
+						<option value="intérêts">Intérêts</option>
 					</select>
 					ressemble à 
 					<input type=text name="value"/><br/>
 				</li>
-				<li>
+				<li><c:out value="<li>"></c:out>
 					Qui est:
-					<input type="radio" name="sex" value="male"/>Un homme
-					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="female"/>Une femme
-					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="both" checked/>Pas une carte mère
+					<input type="radio" name="sex" value="un homme"/>Un homme
+					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="une femme"/>Une femme
+					&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="pas une carte mère" checked/>Pas une carte mère
 				</li>
 			</ul>
 			<br/><input type="submit" value="Rechercher"/>
 		</form>
+		<p>
+		<c:out value="</html>"></c:out>
+		</p>
 	</body>
 </html>

@@ -8,9 +8,16 @@
 		<title>Liste des geeks</title>
 	</head>
 	<body>
+		<p>
+			<c:if test="${!empty category}">
+				Recherche de profil par ${category} 
+				contenant <c:out value="' ${value} '"/> 
+				et étant ${sex}.
+			</c:if>
+		</p>
 		<ul>
 			<c:forEach var="geek" items="${geeks}">
-				<li>
+				<li><c:out value="<li>"></c:out>
 					<a href="profile?id=${geek.id}">
 					<c:out value="${geek.pseudo}"/>
 					<c:out value=" (${geek.prenom} ${geek.nom})"/>
@@ -23,6 +30,6 @@
 				Aucun profil correspondant trouvé.
 			</p>
 		</c:if>
-		<a href="/Geektic">Accueil</a>
+		<a href="/Geektic"><c:out value="<a>"></c:out>Accueil</a>
 	</body>
 </html>

@@ -79,21 +79,21 @@ public class GeekService {
 			list = getGeeksLikeNom(value);
 		else if(category.equals("mail"))
 			list = getGeeksLikeMail(value);
-		else if(category.equals("interets"))
+		else if(category.equals("intérêts"))
 			list = getGeeksWithInteret(value);
 		else
 			return null;
 		
-		if(sex.equals("both"))
+		if(sex.equals("pas une carte mère"))
 			return list;
 		
 		List<Geek> retour = new ArrayList<>();
-		if(sex.equals("male")){
+		if(sex.equals("un homme")){
 			for(Geek geek : list){
 				if(geek.male)
 					retour.add(geek);
 			}
-		}else if(sex.equals("female")){
+		}else if(sex.equals("une femme")){
 			for(Geek geek : list){
 				if(!geek.male)
 					retour.add(geek);

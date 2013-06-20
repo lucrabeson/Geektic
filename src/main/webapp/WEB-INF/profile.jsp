@@ -17,15 +17,17 @@
 					Pseudo: <c:out value="${geek.pseudo}" /><br/>
 					<c:out value="${geek.male ? 'Homme' : 'Femme'}" /><br/>
 					Mail: <a href="mailto:<c:out value="${geek.mail}" />"><c:out value="${geek.mail}" /></a><br/>
-					<br/>Intérêts: <br/>
+					<br/>Intérêts:
+					<ul>
 					<c:forEach var="interet" items="${geek.interetList}">
-						- <c:out value="${interet.nom}"/><br/>
+						<li><c:out value="<li>${interet.nom}"/></li>
 					</c:forEach>
+					</ul>
 			
 				</c:when>
 				<c:otherwise>Profil non trouvé.</c:otherwise>
 			</c:choose>
 		</p>
-		<a href="/Geektic">Accueil</a>
+		<a href="/Geektic"><c:out value="<a>"></c:out>Accueil</a>
 	</body>
 </html>
